@@ -16,6 +16,12 @@ const login = (e) => {
             password: e.target.password.value
         })
         .then(function(response) {
+            localStorage.setItem("userFirstName", response.data.data.firstName);
+            localStorage.setItem("userLastName", response.data.data.lastName)
+            localStorage.setItem("userEmail", response.data.data.email)
+            localStorage.setItem("token", response.data.data.token)
+        })
+        .then(function() {
             window.location.href = "http://127.0.0.1:5500/Landing%20page/index.html";
         })
         .catch(function(error) {
